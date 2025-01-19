@@ -1,0 +1,79 @@
+# Collect-and-store-student-details
+import java.util.ArrayList;
+import java.util.Scanner;
+
+class Student {
+    private String name;
+    private int rollNumber;
+    private int age;
+    private String grade;
+    public Student(String name, int rollNumber, int age, String grade) {
+        this.name = name;
+        this.rollNumber = rollNumber;
+        this.age = age;
+        this.grade = grade;
+    }
+    public void displayDetails() {
+        System.out.println("Name: " + name);
+        System.out.println("Roll Number: " + rollNumber);
+        System.out.println("Age: " + age);
+        System.out.println("Grade: " + grade);
+    }
+}
+public class StudentDetails {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        ArrayList<Student> students = new ArrayList<>();
+        System.out.print("Enter the number of students: ");
+        int numberOfStudents = scanner.nextInt();
+        scanner.nextLine();
+        for (int i = 0; i < numberOfStudents; i++) {
+        System.out.println("\nEnter details for student " + (i + 1) + ":");
+            System.out.print("Enter name: ");
+            String name = scanner.nextLine();
+            System.out.print("Enter roll number: ");
+            int rollNumber = scanner.nextInt();
+            System.out.print("Enter age: ");
+            int age = scanner.nextInt();
+            scanner.nextLine(); 
+            System.out.print("Enter grade: ");
+            String grade = scanner.nextLine();
+            students.add(new Student(name, rollNumber, age, grade));
+        }
+        System.out.println("\n--- Student Details ---");
+        for (int i = 0; i < students.size(); i++)           System.out.println("\nStudent " + (i + 1) + ":");      students.get(i).displayDetails();
+        }
+        scanner.close();
+    }
+}
+
+Input:
+
+Enter the number of students: 2
+
+Enter details for student 1:
+Enter name: John Doe
+Enter roll number: 101
+Enter age: 20
+Enter grade: A
+
+Enter details for student 2:
+Enter name: Jane Smith
+Enter roll number: 102
+Enter age: 21
+Enter grade: B
+ Output:
+
+--- Student Details ---
+
+Student 1:
+Name: John Doe
+Roll Number: 101
+Age: 20
+Grade: A
+
+Student 2:
+Name: Jane Smith
+Roll Number: 102
+Age: 21
+Grade: B
